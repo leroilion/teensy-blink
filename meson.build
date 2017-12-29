@@ -14,7 +14,7 @@ teensy_core_sp = subproject('teensy-core')
 teensy_core_dep = teensy_core_sp.get_variable('teensy_core_dep')
 
 teensy_mcu = meson.get_cross_property('teensy_mcu')
-teensy_ldscript = meson.get_cross_property('teensy_ldscript')
+teensy_ldscript = teensy_core_sp.get_variable('teensy_ldscript')
 local_ldflags = [
         '-T' + join_paths(meson.source_root(), 'subprojects', 'teensy-core', teensy_ldscript)
     ]
